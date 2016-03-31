@@ -1,0 +1,12 @@
+'BOX_8000k' ! boxfile
+500000      ! numb of shell particles
+0.03        ! inner radius  kpc
+0.1         ! outer radius  kpc
+0.3         ! vrot
+0.3         ! vturb
+180.0       ! tilt_deg
+512         ! NM - Size of mesh for Fourier Transform 
+0.0051      ! M_tot
+0.0         ! X0
+0.0         ! Y0
+0.0         ! Z0
