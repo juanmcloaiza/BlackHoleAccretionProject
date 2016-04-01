@@ -1,0 +1,34 @@
+FA = mpif90 -FI -i4 -w -Vaxlib
+FC = mpif90 -g  -C -FI -i4 -d1 -CU -traceback -w -Vaxlib -fpstkchk -fpe0 -convert big_endian -check uninit -I$(TWO_DECOMP_FFT_INC)
+FO = mpif90  -O2 -no-vec -qstrict -FI -i4 -w -convert big_endian -I$(TWO_DECOMP_FFT_INC)
+FB = $(FO)
+
+BIN=/scratch/valda/sphMPIKH5
+DIR=/home/valda/multiIADK
+MYLIB1=$(BIN)/subsphtube.o
+MYLIB3=$(BIN)/sphtube.o
+MYLIB4=$(BIN)/paral.o
+FILEF=sphACKiad_v3.f
+FILEP=paral_ACKiad_v3.f
+FILES=subsphACKiad_v3.f
+
+all: $(BIN)/sphtube.o $(BIN)/paral.o $(BIN)/subsphtube.o $(BIN)/sphtube 
+
+
+$(BIN)/sphtube.o: $(BIN)/$(FILEF) $(BIN)/$(FILEP) $(BIN)/$(FILES)
+	$(FB) -c -o sphtube.o $(BIN)/$(FILEF)
+
+
+
+$(BIN)/paral.o: $(BIN)/$(FILEP) $(BIN)/$(FILEF)
+	$(FB) -c -o paral.o $(BIN)/$(FILEP)
+
+$(BIN)/subsphtube.o: $(BIN)/$(FILES) $(BIN)/sphtube.o
+	$(FB) -c -o subsphtube.o $(BIN)/$(FILES)
+
+
+$(BIN)/sphtube: $(MYLIB1) $(MYLIB2) $(BIN)/$(FILEF) 
+	$(FB) -o sphtube $(MYLIB1) $(MYLIB3) $(MYLIB4) -L$(TWO_DECOMP_FFT_LIB) -L$(FFTW_LIB) -l2decomp_fft -lfftw3_mpi -lfftw3 libc.o
+
+	\rm *.mod
+
