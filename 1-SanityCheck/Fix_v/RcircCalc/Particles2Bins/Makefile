@@ -3,10 +3,10 @@ CC = gcc
 OPTIMIZE = -Wall -O3
 
 OPTIONS = $(OPTIMIZE)
+NAME = particles2bins
+EXEC = $(NAME).x
 
-EXEC = particles2bins
-
-OBJS = ${EXEC}.o
+OBJS = $(NAME).o
 
 
 INCL = readgadget.h 
