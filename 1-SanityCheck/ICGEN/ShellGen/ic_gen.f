@@ -35,8 +35,8 @@
 
       MODULE ffta
       INTEGER (KIND=4) NM
-      REAL(KIND=4) ,dimension (:,:,:), ALLOCATABLE :: avecx,avecy,avecz
-      REAL(KIND=4) ,dimension (:,:,:), ALLOCATABLE :: vcurlx,vcurly,
+      REAL(KIND=8) ,dimension (:,:,:), ALLOCATABLE :: avecx,avecy,avecz
+      REAL(KIND=8) ,dimension (:,:,:), ALLOCATABLE :: vcurlx,vcurly,
      &vcurlz
       END MODULE ffta
 
@@ -948,15 +948,15 @@ C   v_x=A_z,y-A_y,z   v_y=A_x,z-A_z,x  v_z=Ay,x-A_x,y
        SUBROUTINE fftvec(AR,NM)
        USE units
        include 'fftw3.f'
-       REAL AR(1:NM+2,NM,NM)
+       REAL*8 AR(1:NM+2,NM,NM)
        integer*8 plan
 
        NL=NM
        NN=NM
 
        call dfftw_plan_dft_c2r_3d(plan,NL,NM,NN,ar,ar,FFTW_ESTIMATE)
-       call fftw_execute(plan)
-       call fftw_destroy_plan(plan)
+       call dfftw_execute(plan)
+       call dfftw_destroy_plan(plan)
 
         RETURN
         END 
@@ -965,15 +965,15 @@ C   v_x=A_z,y-A_y,z   v_y=A_x,z-A_z,x  v_z=Ay,x-A_x,y
        SUBROUTINE fftveci(AR,NM)
        USE units
        include 'fftw3.f'
-       REAL AR(1:NM+2,NM,NM)
+       REAL*8 AR(1:NM+2,NM,NM)
        integer*8 plan
 
        NL=NM
        NN=NM
 
-       call fftw_plan_dft_r2c_3d(plan,NL,NM,NN,ar,ar,FFTW_ESTIMATE)
-       call fftw_execute(plan)
-       call fftw_destroy_plan(plan)
+       call dfftw_plan_dft_r2c_3d(plan,NL,NM,NN,ar,ar,FFTW_ESTIMATE)
+       call dfftw_execute(plan)
+       call dfftw_destroy_plan(plan)
 
         RETURN
         END 
