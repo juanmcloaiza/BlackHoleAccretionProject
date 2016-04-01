@@ -13,16 +13,17 @@ def load_data(filename):
 			all_lines.append(line_data)
 	return all_lines
 
-datafile = "./M6_r_l_histogram.txt"
-X = np.array(load_data(datafile))
-label_this="$M_{\\rm BH} = 10^6 M_{\\odot}$"
-imgplot = pl.plot(X[:,0], X[:,1],  label = label_this)
+for i in [1,3,5]:
+	datafile = "./M6_r_l_histogram_t"+str(i)+"00.txt"
+	X = np.array(load_data(datafile))
+	label_this="$M_{\\rm BH} = 10^6 M_{\\odot}, t = "+str(i)+"00$"
+	imgplot = pl.plot(X[:,0], X[:,1],  label = label_this)
 
 pl.legend(loc=2)
 pl.xlabel("$r$")
 pl.ylabel("$N_{\\rm part}$")
-#pl.xlim([0,2000])
-#pl.ylim([0,30])
+pl.xlim([0,0.03])
+#pl.ylim([0,0.30])
 pl.title("Circularization radius is where the peak is..." )
 figfile = "Rcirc.png"
 pl.savefig(figfile)
