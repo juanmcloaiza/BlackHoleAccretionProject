@@ -580,7 +580,7 @@ int main(int argc, char **argv)
 	printf("making histogram for l...\n");
 	make_histogram(l_, ntot, lbin, Nl, Nbins);
 	printf("writing output file...\n");
-	fprintf(fp,"rbin[i] Nr[i] lbin[i] Nl[i]\n");
+	fprintf(fp,"#rbin[i] Nr[i] lbin[i] Nl[i]\n");
 	for(i = 0 ; i < Nbins ; i++){
 		fprintf(fp," %f %f %f %f \n",rbin[i],(float)Nr[i]/(float)ntot,lbin[i],(float)Nl[i]/(float)ntot);
 	}
