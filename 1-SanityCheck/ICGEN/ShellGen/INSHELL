@@ -2,7 +2,7 @@
 100000      ! numb of shell particles
 0.03        ! inner radius  kpc
 0.1         ! outer radius  kpc
-0.3         ! vrot
+0.7         ! vrot
 0.0         ! vturb
 0.0         ! tilt_deg
 512         ! NM - Size of mesh for Fourier Transform 
