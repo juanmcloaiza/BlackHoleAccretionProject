@@ -51,12 +51,7 @@ void run(void)
 
       every_timestep_stuff();	/* write some info to log-files */
 //Added by JM
-if( my_racc > 0.0  ){
-      accrete_particles();
-}
-else{
-	if( ThisTask == 0 ) printf("No accretion taking place\n");
-}
+if( my_racc > 0.0  ) accrete_particles();
 //      All.NumForcesSinceLastDomainDecomp = 1 + All.TreeDomainUpdateFrequency * All.TotNumPart;
 //End of Added by JM
 
