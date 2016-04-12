@@ -21,7 +21,7 @@ OutputListFilename  outputs_selection.txt
 TimeLimitCPU      21000
 ResubmitOn        1
 
-ResubmitCommand  asddsaasddsaasd 
+ResubmitCommand   /home/jcarmona/JuanAndMaxStuff/1-SanityCheck/No_racc/res_100k/autorestart.sh
 
 % Code options
 
