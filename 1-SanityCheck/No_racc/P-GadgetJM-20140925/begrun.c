@@ -379,6 +379,7 @@ void set_units(void)
       printf("UnitEnergy_in_cgs = %g \n", All.UnitEnergy_in_cgs);
 #ifdef MYSWITCH
       printf("Black Hole Mass (internal units) = %g \n", my_Mbh);
+      printf("Sink Radius (internal units) = %g \n", my_racc);
 #endif
       printf("\n");
     }
