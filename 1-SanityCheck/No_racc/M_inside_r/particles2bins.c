@@ -422,14 +422,14 @@ int write_gadget_float3(int npart, float *data,char *label,FILE *fp)
 /*-----------------------------------------------------------------------------*/
 void make_histogram(float *x, int Nsamples, float *xbin, int *F, int Nbins){
 	int i,j, count;
-	float xmin = 1e10;
+	float xmin = 0.0;
 	float xmax = 0.03;
 	float dL;
 	/*Check xmin and xmax*/
-	for( i = 0 ; i < Nsamples ; i++ ){
-		if (x[i] < xmin) xmin = x[i];
+//	for( i = 0 ; i < Nsamples ; i++ ){
+//		if (x[i] < xmin) xmin = x[i];
 		//if (x[i] > xmax) xmax = x[i];
-	}
+//	}
 	dL = (xmax - xmin)/(float)Nbins;
 	for( j = 0; j < Nbins ; j++ ){
 		xbin[j] = xmin + j * dL;
