@@ -447,43 +447,6 @@ void make_histogram(float *x, int Nsamples, float *xbin, int *F, int Nbins){
 }
 
 /*-----------------------------------------------------------------------------*/
-/*---- Routine to make a cumulative distribution from some array --------------*/
-/*-------- float *x:      Pointer where the data are stored to ----------------*/
-/*-------- int Nsamples:  Number of data samples ------------------------------*/
-/*-------- float *xbin: bin array (calculated here) ---------------------------*/
-/*-------- int *F:  cumulative frequency array (calculated here) --------------*/
-/*-------- int Nbins: desired number of bins ----------------------------------*/
-/*-----------------------------------------------------------------------------*/
-void make_cumulative_histogram(float *x, int Nsamples, float *xbin, int *F, int Nbins){
-	int i,j, count;
-	float xmin = 1e10;
-	float xmax = -1e10;
-	float dL;
-	/*Check xmin and xmax*/
-	for( i = 0 ; i < Nsamples ; i++ ){
-		if (x[i] < xmin) xmin = x[i];
-		if (x[i] > xmax) xmax = x[i];
-	}
-	dL = (xmax - xmin)/(float)Nbins;
-	for( j = 0; j < Nbins ; j++ ){
-		xbin[j] = xmin + j * dL;
-	}
-	count = 0;
-	for( j = 0 ; j < Nbins ; j++ ){
-		for( i = 0 ; i < Nsamples ; i++ ){
-			if ( ( x[i] > xbin[j] ) && ( x[i] <= xbin[j] + dL) ){
-				count = count + 1;
-			}
-			if(j == 0 && x[i] == xmin) count = count + 1;
-		}
-		F[j] = count;
-	} 
-}
-
-
-
-
-/*-----------------------------------------------------------------------------*/
 /*-------- Routine to make a distribution of p as function of x ---------------*/
 /*-------- float *x:         Pointer to data of the independent variable -------*/
 /*-------- float *p:         Pointer to data of the dependent variable ---------*/
@@ -613,9 +576,9 @@ int main(int argc, char **argv)
 
 	/*Make histograms*/
 	printf("making histogram for r...\n");
-	make_cumulative_histogram(r_, ntot, rbin, Nr, Nbins);
+	make_histogram(r_, ntot, rbin, Nr, Nbins);
 	printf("making histogram for l...\n");
-	make_cumulative_histogram(l_, ntot, lbin, Nl, Nbins);
+	make_histogram(l_, ntot, lbin, Nl, Nbins);
 	printf("writing output file...\n");
 	fprintf(fp,"#rbin[i] Nr[i] lbin[i] Nl[i]\n");
 	for(i = 0 ; i < Nbins ; i++){
