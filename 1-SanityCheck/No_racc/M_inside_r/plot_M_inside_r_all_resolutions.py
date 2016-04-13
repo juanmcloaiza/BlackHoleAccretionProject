@@ -31,22 +31,26 @@ pl.tick_params(width=BorderWidth, length=FontSize, which='major')
 pl.tick_params(width=BorderWidth, length=0.3*FontSize, which='minor')
 
 
-snap=500
+snap=5
 #print("#M_bh r_circ")
 for res in ['100k','250k','500k','750k','001M']:
-	datafile = "./res_"+res+"_t"+str(snap)+".txt"
+	datafile = "./res_"+res+"_t"+str(snap)+"00.txt"
 	X = np.array(load_data(datafile))
-	label_this= res+" particles, $t = "+str(snap)+"$"
-	imgplot = pl.plot(X[:,0], X[:,1],'-', linewidth = 0.5*FontSize, label = label_this)
+	M_cumulative = np.array(X[:,1])
+	for i in range(1,len(M_cumulative)):
+		M_cumulative[i] += M_cumulative[i-1]
+	label_this= res#+" particles, $t = "+str(snap)+"$"
+	imgplot = pl.loglog(X[:,0], M_cumulative,'-', linewidth = 0.5*FontSize, label = label_this)
+	#imgplot2 = pl.loglog(X[:,0], X[:,1],'--', linewidth = 0.5*FontSize, label = label_this)
 	#print("1e"+str(i-10)+" "+str(get_rcirc(X[:,0],X[:,1])))
 
 pl.legend(loc=2)
 pl.xlabel("$r$",fontsize=1.5*FontSize)
 pl.ylabel("$N_{\\rm part}$",fontsize=1.5*FontSize)
-#pl.xlim([0,0.03])
-#pl.ylim([0,0.30])
+pl.xlim([2e-3,2e-2])
+pl.ylim([1e-3,1e0])
 #pl.title("Circularization radius is where the peak is..." )
-figfile = "M_inside_r_all_rees.png"
+figfile = "M_inside_r_all_res.png"
 pl.savefig(figfile)
 print("Figure saved to "+figfile)
 #pl.show()
