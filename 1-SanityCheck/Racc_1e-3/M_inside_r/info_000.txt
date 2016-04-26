@@ -1,0 +1,195 @@
+Found Block <HEAD> with 264 bytes
+npart[0] = 99982
+npart[1] = 0
+npart[2] = 0
+npart[3] = 0
+npart[4] = 0
+npart[5] = 0
+massarr[0] = 0.000010
+massarr[1] = 0.000000
+massarr[2] = 0.000000
+massarr[3] = 0.000000
+massarr[4] = 0.000000
+massarr[5] = 0.000000
+PartSpezies 0, anz=99982, masstab=0.000010
+PartSpezies 1, anz=0, masstab=0.000000
+PartSpezies 2, anz=0, masstab=0.000000
+PartSpezies 3, anz=0, masstab=0.000000
+PartSpezies 4, anz=0, masstab=0.000000
+PartSpezies 5, anz=0, masstab=0.000000
+Time of snapshot=0.000000, z=0.000000, ntot=99982
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 1199792 bytes
+Reding 1199784 bytes of data from <POS >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 1199792 bytes
+Found Block <VEL > with 1199792 bytes
+Reding 1199784 bytes of data from <VEL >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 1199792 bytes
+Found Block <VEL > with 1199792 bytes
+Found Block <ID  > with 399936 bytes
+Reading 399928 bytes of data from <ID  >...
+making histogram for r...
+making histogram for l...
+writing output file...
+Closing files...
+Freing memory...
+Output file writen to bla.txt
+Found Block <HEAD> with 264 bytes
+npart[0] = 250052
+npart[1] = 0
+npart[2] = 0
+npart[3] = 0
+npart[4] = 0
+npart[5] = 0
+massarr[0] = 0.000004
+massarr[1] = 0.000000
+massarr[2] = 0.000000
+massarr[3] = 0.000000
+massarr[4] = 0.000000
+massarr[5] = 0.000000
+PartSpezies 0, anz=250052, masstab=0.000004
+PartSpezies 1, anz=0, masstab=0.000000
+PartSpezies 2, anz=0, masstab=0.000000
+PartSpezies 3, anz=0, masstab=0.000000
+PartSpezies 4, anz=0, masstab=0.000000
+PartSpezies 5, anz=0, masstab=0.000000
+Time of snapshot=0.000000, z=0.000000, ntot=250052
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 3000632 bytes
+Reding 3000624 bytes of data from <POS >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 3000632 bytes
+Found Block <VEL > with 3000632 bytes
+Reding 3000624 bytes of data from <VEL >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 3000632 bytes
+Found Block <VEL > with 3000632 bytes
+Found Block <ID  > with 1000216 bytes
+Reading 1000208 bytes of data from <ID  >...
+making histogram for r...
+making histogram for l...
+writing output file...
+Closing files...
+Freing memory...
+Output file writen to bla.txt
+Found Block <HEAD> with 264 bytes
+npart[0] = 499933
+npart[1] = 0
+npart[2] = 0
+npart[3] = 0
+npart[4] = 0
+npart[5] = 0
+massarr[0] = 0.000002
+massarr[1] = 0.000000
+massarr[2] = 0.000000
+massarr[3] = 0.000000
+massarr[4] = 0.000000
+massarr[5] = 0.000000
+PartSpezies 0, anz=499933, masstab=0.000002
+PartSpezies 1, anz=0, masstab=0.000000
+PartSpezies 2, anz=0, masstab=0.000000
+PartSpezies 3, anz=0, masstab=0.000000
+PartSpezies 4, anz=0, masstab=0.000000
+PartSpezies 5, anz=0, masstab=0.000000
+Time of snapshot=0.000000, z=0.000000, ntot=499933
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 5999204 bytes
+Reding 5999196 bytes of data from <POS >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 5999204 bytes
+Found Block <VEL > with 5999204 bytes
+Reding 5999196 bytes of data from <VEL >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 5999204 bytes
+Found Block <VEL > with 5999204 bytes
+Found Block <ID  > with 1999740 bytes
+Reading 1999732 bytes of data from <ID  >...
+making histogram for r...
+making histogram for l...
+writing output file...
+Closing files...
+Freing memory...
+Output file writen to bla.txt
+Found Block <HEAD> with 264 bytes
+npart[0] = 750030
+npart[1] = 0
+npart[2] = 0
+npart[3] = 0
+npart[4] = 0
+npart[5] = 0
+massarr[0] = 0.000001
+massarr[1] = 0.000000
+massarr[2] = 0.000000
+massarr[3] = 0.000000
+massarr[4] = 0.000000
+massarr[5] = 0.000000
+PartSpezies 0, anz=750030, masstab=0.000001
+PartSpezies 1, anz=0, masstab=0.000000
+PartSpezies 2, anz=0, masstab=0.000000
+PartSpezies 3, anz=0, masstab=0.000000
+PartSpezies 4, anz=0, masstab=0.000000
+PartSpezies 5, anz=0, masstab=0.000000
+Time of snapshot=0.000000, z=0.000000, ntot=750030
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 9000368 bytes
+Reding 9000360 bytes of data from <POS >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 9000368 bytes
+Found Block <VEL > with 9000368 bytes
+Reding 9000360 bytes of data from <VEL >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 9000368 bytes
+Found Block <VEL > with 9000368 bytes
+Found Block <ID  > with 3000128 bytes
+Reading 3000120 bytes of data from <ID  >...
+making histogram for r...
+making histogram for l...
+writing output file...
+Closing files...
+Freing memory...
+Output file writen to bla.txt
+Found Block <HEAD> with 264 bytes
+npart[0] = 1000128
+npart[1] = 0
+npart[2] = 0
+npart[3] = 0
+npart[4] = 0
+npart[5] = 0
+massarr[0] = 0.000001
+massarr[1] = 0.000000
+massarr[2] = 0.000000
+massarr[3] = 0.000000
+massarr[4] = 0.000000
+massarr[5] = 0.000000
+PartSpezies 0, anz=1000128, masstab=0.000001
+PartSpezies 1, anz=0, masstab=0.000000
+PartSpezies 2, anz=0, masstab=0.000000
+PartSpezies 3, anz=0, masstab=0.000000
+PartSpezies 4, anz=0, masstab=0.000000
+PartSpezies 5, anz=0, masstab=0.000000
+Time of snapshot=0.000000, z=0.000000, ntot=1000128
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 12001544 bytes
+Reding 12001536 bytes of data from <POS >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 12001544 bytes
+Found Block <VEL > with 12001544 bytes
+Reding 12001536 bytes of data from <VEL >...
+Found Block <HEAD> with 264 bytes
+Found Block <POS > with 12001544 bytes
+Found Block <VEL > with 12001544 bytes
+Found Block <ID  > with 4000520 bytes
+Reading 4000512 bytes of data from <ID  >...
+making histogram for r...
+making histogram for l...
+writing output file...
+Closing files...
+Freing memory...
+Output file writen to bla.txt
+PartSpezies 0, anz=99982, masstab=0.000010
+PartSpezies 0, anz=250052, masstab=0.000004
+PartSpezies 0, anz=499933, masstab=0.000002
+PartSpezies 0, anz=750030, masstab=0.000001
+PartSpezies 0, anz=1000128, masstab=0.000001
