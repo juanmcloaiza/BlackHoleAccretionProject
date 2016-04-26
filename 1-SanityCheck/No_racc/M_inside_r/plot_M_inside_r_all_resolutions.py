@@ -37,8 +37,10 @@ for res in ['100k','250k','500k','750k','001M']:
 	datafile = "./res_"+res+"_t"+str(snap)+"00.txt"
 	X = np.array(load_data(datafile))
 	M_cumulative = np.array(X[:,1])
+	print('#'+res)
 	for i in range(1,len(M_cumulative)):
 		M_cumulative[i] += M_cumulative[i-1]
+		print(X[i,0], M_cumulative[i])
 	label_this= res#+" particles, $t = "+str(snap)+"$"
 	imgplot = pl.loglog(X[:,0], M_cumulative,'-', linewidth = 0.5*FontSize, label = label_this)
 	#imgplot2 = pl.loglog(X[:,0], X[:,1],'--', linewidth = 0.5*FontSize, label = label_this)
