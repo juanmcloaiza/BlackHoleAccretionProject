@@ -73,6 +73,8 @@ for res, error,color in zip(['100k','250k','500k','750k','001M'], [0.0137525, 0.
 	label_this= res#+" particles, $t = "+str(snap)+"$"
 	imgplot = pl.loglog(X[:,0], M_cumulative,color, linewidth = 0.2*FontSize)
 
+#plot shaded region inside r_acc
+pl.axvspan(1e-3, 5e-3, facecolor='k', alpha=0.5)
 
 #Plot the simulations without accretion radius:
 for res, color in zip(['100k','250k','500k','750k','001M'],['b-','g-','r-','c-','m-']):
