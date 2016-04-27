@@ -33,16 +33,18 @@ label_this = '""'
 imgplot = pl.loglog(Resolution, Wallclock,'bo', markersize = 0.7*FontSize, linewidth = 0.7*FontSize, label = label_this)
 
 #plot fit
-#x = np.linspace(1e5,1e6,1025)
-#y = 1.5e-3*(x/1e5)**-1.5
-#imgplot = pl.loglog(x,y,'k--',label = '$y \\sim x^{-3/2} $')
+x = np.linspace(1e5,1e7,1025)
+y = 0.7*(x/1e5)**1.3
+imgplot = pl.loglog(x,y,'k--')#label = '$y \\sim x^{3/2} $')
+y = 0.7*(x/1e5)**1.5
+imgplot = pl.loglog(x,y,'k--')#label = '$y \\sim x^{3/2} $')
 
-pl.legend(loc=1)
+#pl.legend(loc=2)
 pl.xlabel("$N_{\\rm part}$",fontsize=1.5*FontSize)
 pl.ylabel("$t_{\\rm wall} \, [h]$",fontsize=1.5*FontSize)
 #pl.xlim([2e-3,2e-2])
 #pl.ylim([1e-3,1e0])
-#pl.title("Circularization radius is where the peak is..." )
+pl.title("For $10^7$ particles, between 12 and 30 days non-stop!",y=1.045)
 figfile = "Wallclock_vs_npart.png"
 pl.savefig(figfile)
 print("Figure saved to "+figfile)
