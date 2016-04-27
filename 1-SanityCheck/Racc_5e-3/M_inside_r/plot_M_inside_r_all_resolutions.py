@@ -41,10 +41,11 @@ pl.tick_params(width=BorderWidth, length=0.3*FontSize, which='minor')
 
 snap=5
 
+#Racc = 1e-3
 #Plot the simulations with accretion radius correcting for erros
 #in mass calculation:
 for res, error in zip(['100k','250k','500k','750k','001M'],[0.00147026, 0.000535889, 0.000154021, 7.73302e-05, 5.09935e-05]):
-	datafile = "./res_"+res+"_t"+str(snap)+"00.txt"
+	datafile = "../../Racc_1e-3/M_inside_r/res_"+res+"_t"+str(snap)+"00.txt"
 	X = np.array(load_data(datafile))
 	M_cumulative = np.array(X[:,1])
 #	print('#'+res)
@@ -56,14 +57,22 @@ for res, error in zip(['100k','250k','500k','750k','001M'],[0.00147026, 0.000535
 	label_this= res#+" particles, $t = "+str(snap)+"$"
 	imgplot = pl.loglog(X[:,0], M_cumulative,'--', linewidth = 0.2*FontSize, label = label_this)
 
-#Plot the same simulations without correction for mass calculation:
-for res, color in zip(['100k','250k','500k','750k','001M'],['b.','g.','r.','c.','m.']):
+#Racc = 5e-3
+#Plot the simulations with accretion radius correcting for erros
+#in mass calculation:
+for res, error,color in zip(['100k','250k','500k','750k','001M'], [0.0137525, 0.00977397, 0.00712295, 0.00588776, 0.00497536],['bx','gx','rx','cx','mx']):
 	datafile = "./res_"+res+"_t"+str(snap)+"00.txt"
 	X = np.array(load_data(datafile))
 	M_cumulative = np.array(X[:,1])
+#	print('#'+res)
 	for i in range(1,len(M_cumulative)):
 		M_cumulative[i] += M_cumulative[i-1]
+	for i in range(1,len(M_cumulative)):
+		M_cumulative[i] = correct_mass(M_cumulative[i],error)
+#		print(X[i,0], M_cumulative[i])
+	label_this= res#+" particles, $t = "+str(snap)+"$"
 	imgplot = pl.loglog(X[:,0], M_cumulative,color, linewidth = 0.2*FontSize)
+
 
 #Plot the simulations without accretion radius:
 for res, color in zip(['100k','250k','500k','750k','001M'],['b-','g-','r-','c-','m-']):
@@ -77,7 +86,7 @@ for res, color in zip(['100k','250k','500k','750k','001M'],['b-','g-','r-','c-',
 
 pl.legend(loc=2)
 pl.xlabel("$r$",fontsize=1.5*FontSize)
-pl.ylabel("$N_{\\rm part}$",fontsize=1.5*FontSize)
+pl.ylabel("$N_{\\rm frac}$",fontsize=1.5*FontSize)
 pl.xlim([2e-3,2e-2])
 pl.ylim([1e-3,1e0])
 #pl.title("Circularization radius is where the peak is..." )
