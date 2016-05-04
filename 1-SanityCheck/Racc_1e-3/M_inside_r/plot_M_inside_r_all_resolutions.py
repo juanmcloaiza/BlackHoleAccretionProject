@@ -77,9 +77,9 @@ for res, color in zip(['100k','250k','500k','750k','001M'],['b-','g-','r-','c-',
 
 pl.legend(loc=2)
 pl.xlabel("$r$",fontsize=1.5*FontSize)
-pl.ylabel("$N_{\\rm part}$",fontsize=1.5*FontSize)
-pl.xlim([2e-3,2e-2])
-pl.ylim([1e-3,1e0])
+pl.ylabel("$N(r)/N_{\\rm part}$",fontsize=1.5*FontSize)
+pl.xlim([1e-4,3e-2])
+pl.ylim([1e-6,1e0])
 #pl.title("Circularization radius is where the peak is..." )
 figfile = "M_inside_r_all_res.png"
 pl.savefig(figfile)

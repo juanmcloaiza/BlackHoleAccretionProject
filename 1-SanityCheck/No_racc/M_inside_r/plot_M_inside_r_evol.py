@@ -13,19 +13,11 @@ def load_data(filename):
 			all_lines.append(line_data)
 	return all_lines
 
-def M_in(r):
-	Mbh = 1e-2
-	Mcore = 2e-2
-	Mbulge = 1.0
-	rcore = 0.02 
-	rbulge = 1.0
-	if( r < rcore ):
-		return Mbh + Mcore * (r/rcore)**3
-	else:
-		return Mbh + Mbulge * (r/rbulge)
-
-def Jmom(r):
-	return np.sqrt( r * M_in( r ))
+def get_rcirc(radius,nparts):
+	mean_r = 0
+	for r,n in zip(radius,nparts):
+		mean_r += r*n
+	return mean_r
 
 #Set relevant dimensions:
 FigSize = 10
@@ -39,38 +31,34 @@ pl.tick_params(width=BorderWidth, length=FontSize, which='major')
 pl.tick_params(width=BorderWidth, length=0.3*FontSize, which='minor')
 
 
-snap=5
+res='001M'
 #print("#M_bh r_circ")
-for res in ['100k','250k','500k','750k','001M']:
-	datafile = "./res_"+res+"_t"+str(snap)+"00.txt"
+for snap in ['000','010','050','100','200','300','500']:
+	datafile = "./res_"+res+"_t"+snap+".txt"
 	X = np.array(load_data(datafile))
 	M_cumulative = np.array(X[:,1])
-	print('#'+res)
 	for i in range(1,len(M_cumulative)):
 		M_cumulative[i] += M_cumulative[i-1]
-		print(X[i,0], M_cumulative[i])
-	label_this= res#+" particles, $t = "+str(snap)+"$"
+	label_this= snap#+" particles, $t = "+str(snap)+"$"
 	imgplot = pl.loglog(X[:,0], M_cumulative,'-', linewidth = 0.5*FontSize, label = label_this)
+	#imgplot2 = pl.loglog(X[:,0], X[:,1],'--', linewidth = 0.5*FontSize, label = label_this)
+	#print("1e"+str(i-10)+" "+str(get_rcirc(X[:,0],X[:,1])))
 
-#plot expectation: From generalized eq 12:
-#M(<r*) / Mshell ~
-r_fin = np.linspace(1e-4,0.2)
-J_rfin = np.zeros(len(r_fin))
-for i in range(len(r_fin)):
-	J_rfin[i] = Jmom(r_fin[i])
+#plot expectation: From eq 12:
+#M(<r*) / Mshell ~ Mbh r* / rshell^2 / vrot^2
 
-pl.plot(r_fin, J_rfin**2, 'k--', label='expected')
-pl.plot(r_fin, r_fin, 'k.', label='expected')
-#ONLY VALID FOR r << r_core = 0.02
+rad = np.linspace(1e-3,1e-1)
+m_in = 1e-2 * rad / 0.1 / 0.3**2
+pl.plot(rad,m_in,'k--',label='expected slope')
 
 
 pl.legend(loc=2)
 pl.xlabel("$r$",fontsize=1.5*FontSize)
 pl.ylabel("$N_{\\rm part}$",fontsize=1.5*FontSize)
-pl.xlim([1e-4,2e-1])
-pl.ylim([1e-6,1e0])
+pl.xlim([2e-3,1e-1])
+pl.ylim([1e-3,1e0])
 #pl.title("Circularization radius is where the peak is..." )
-figfile = "M_inside_r_all_res.png"
+figfile = "M_inside_r_evol.png"
 pl.savefig(figfile)
 print("Figure saved to "+figfile)
 #pl.show()
