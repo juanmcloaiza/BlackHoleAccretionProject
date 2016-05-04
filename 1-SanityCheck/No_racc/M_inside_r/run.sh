@@ -1,5 +1,5 @@
 #!/bin/bash
-for res in '100k' '250k' '500k' '750k' '001M';
+for snap in '010' '050' '100' '200' '300';
 do
-	./particles2bins.x /scratch/jcarmona/No_racc_res_${res}/Output/snapshot_500 ./res_${res}_t500.txt
+	./particles2bins.x /scratch/jcarmona/No_racc_res_001M/Output/snapshot_${snap} ./res_001M_t${snap}.txt
 done
