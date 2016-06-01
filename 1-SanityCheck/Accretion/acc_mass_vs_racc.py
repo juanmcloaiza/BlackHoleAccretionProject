@@ -85,43 +85,68 @@ def add_point(datafile,style,labelswitch=True):
 	error = abs(Tot_acc_mass - Int_acc_mass)/Tot_acc_mass
 	print("resol = "+str(resol)+" r_acc = "+str(r_acc)+", accreted mass: "+str(Tot_acc_mass)+", "+str(Int_acc_mass)+", error:"+str(error) )
 
-	pl.loglog( resol, Tot_acc_mass, style, label = "$r_{\\rm acc} ="+str(r_acc)+"$" )
+	pl.plot( r_acc, Tot_acc_mass, style, label = "$r_{\\rm acc} ="+str(r_acc)+"$" )
+	pl.xlabel('$r_{\\rm acc}$')
+	pl.ylabel('$M_{\\rm acc}/M_{\\rm shell}$')
 	if(labelswitch):
 		pl.legend()
 
 
 for datafile in (
 [
+'Racc_1e-4_res_100k.txt',
 'Racc_1e-3_res_100k.txt',
-'Racc_1e-3_res_250k.txt',
-'Racc_1e-3_res_500k.txt',
-'Racc_1e-3_res_750k.txt',
-'Racc_1e-3_res_001M.txt',
+'Racc_5e-3_res_100k.txt',
+
 'Racc_1e-3_res_002M.txt',
-'Racc_1e-3_res_004M.txt',
 ]):
 	add_point(datafile,'ro',False)
 
 for datafile in (
 [
-'Racc_1e-4_res_100k.txt',
 'Racc_1e-4_res_250k.txt',
-'Racc_1e-4_res_500k.txt',
-'Racc_1e-4_res_750k.txt',
-'Racc_1e-4_res_001M.txt',
-'Racc_1e-4_res_004M.txt',
+'Racc_1e-3_res_250k.txt',
+'Racc_5e-3_res_250k.txt',
 ]):
 	add_point(datafile,'bo',False)
 
 for datafile in (
 [
-'Racc_5e-3_res_100k.txt',
-'Racc_5e-3_res_250k.txt',
+'Racc_1e-4_res_500k.txt',
+'Racc_1e-3_res_500k.txt',
 'Racc_5e-3_res_500k.txt',
-'Racc_5e-3_res_750k.txt',
-'Racc_5e-3_res_001M.txt',
+
 ]):
 	add_point(datafile,'go',False)
 
+for datafile in (
+[
+'Racc_1e-4_res_750k.txt',
+'Racc_1e-3_res_750k.txt',
+'Racc_5e-3_res_750k.txt',
+]):
+	add_point(datafile,'mo',False)
+
+for datafile in (
+[
+'Racc_1e-4_res_001M.txt',
+'Racc_1e-3_res_001M.txt',
+'Racc_5e-3_res_001M.txt',
+]):
+	add_point(datafile,'co',False)
+
+for datafile in (
+[
+'Racc_1e-4_res_004M.txt',
+'Racc_1e-3_res_004M.txt',
+]):
+	add_point(datafile,'yo',False)
+
+
+for datafile in (
+[
+'Racc_1e-3_res_002M.txt',
+]):
+	add_point(datafile,'ko',False)
 
 pl.show()

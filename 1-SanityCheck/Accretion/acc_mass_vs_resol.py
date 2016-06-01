@@ -86,6 +86,8 @@ def add_point(datafile,style,labelswitch=True):
 	print("resol = "+str(resol)+" r_acc = "+str(r_acc)+", accreted mass: "+str(Tot_acc_mass)+", "+str(Int_acc_mass)+", error:"+str(error) )
 
 	pl.loglog( resol, Tot_acc_mass, style, label = "$r_{\\rm acc} ="+str(r_acc)+"$" )
+	pl.xlabel('$N_{\\rm resol}$')
+	pl.ylabel('$M_{\\rm acc}/M_{\\rm shell}$')
 	if(labelswitch):
 		pl.legend()
 
