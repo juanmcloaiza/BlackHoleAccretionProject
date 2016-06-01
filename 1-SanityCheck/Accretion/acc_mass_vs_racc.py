@@ -97,8 +97,6 @@ for datafile in (
 'Racc_1e-4_res_100k.txt',
 'Racc_1e-3_res_100k.txt',
 'Racc_5e-3_res_100k.txt',
-
-'Racc_1e-3_res_002M.txt',
 ]):
 	add_point(datafile,'ro',False)
 
