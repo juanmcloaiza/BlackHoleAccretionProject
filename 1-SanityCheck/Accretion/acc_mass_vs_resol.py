@@ -141,6 +141,7 @@ for datafile in (
 'Racc_5e-3_res_500k.txt',
 'Racc_5e-3_res_750k.txt',
 'Racc_5e-3_res_001M.txt',
+'Racc_5e-3_res_004M.txt',
 ]):
 	Nres, Macc, racc = get_acc_info(datafile)
 	X.append(Nres)
