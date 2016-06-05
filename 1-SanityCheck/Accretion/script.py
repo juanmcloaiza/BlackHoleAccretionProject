@@ -20,8 +20,8 @@ def load_data(filename):
 			all_lines.append(line_data)
 	return all_lines
 
-for RACC in ['1e-3']:
-	for RES in ['002M','004M']:
+for RACC in ['5e-3']:
+	for RES in ['004M']:
 		datafile = '/scratch/jcarmona/Racc_'+RACC+'_res_'+RES+'/Output/Accretion.txt'
 		print("loading "+datafile)
 		DATA = np.array(load_data(datafile))
