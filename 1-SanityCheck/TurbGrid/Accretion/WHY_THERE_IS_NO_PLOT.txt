@@ -1,0 +1,48 @@
+All these txt files, obtained from the accretion
+data of the simulations with different
+grid for the turbulence are the same.
+
+What we wanted to see is if something in the
+simulations was depending on how the grid was
+set up in the beginning. By noticing that
+all these files have exactly the same contents
+we don't need to make a plot to conclude
+that the grid from which turbulence is
+generated in the IC has no impact on the 
+accreted masses.
+
+A look at the output when making diff 
+between snapshots coming from different grids
+shows that in the beginning, snapshots are indeed
+different, but as evolution stars, the differences
+wash out. 
+I am not sure that this should be the case.
+
+[jcarmona@login1 Accretion]$ diff
+/scratch/jcarmona/TurbGrid128/Output/snapshot_050
+/scratch/jcarmona/TurbGrid158/Output/snapshot_050 
+
+[jcarmona@login1 Accretion]$ diff
+/scratch/jcarmona/TurbGrid128/Output/snapshot_000
+/scratch/jcarmona/TurbGrid158/Output/snapshot_000
+Binary files /scratch/jcarmona/TurbGrid128/Output/snapshot_000 and
+/scratch/jcarmona/TurbGrid158/Output/snapshot_000 differ
+
+[jcarmona@login1 Accretion]$ diff
+/scratch/jcarmona/TurbGrid128/Output/snapshot_001
+/scratch/jcarmona/TurbGrid158/Output/snapshot_001
+
+[jcarmona@login1 Accretion]$ diff
+/scratch/jcarmona/TurbGrid128/Output/snapshot_001
+/scratch/jcarmona/TurbGrid512/Output/snapshot_001
+
+[jcarmona@login1 Accretion]$ diff
+/scratch/jcarmona/TurbGrid128/Output/snapshot_000
+/scratch/jcarmona/TurbGrid512/Output/snapshot_000
+Binary files /scratch/jcarmona/TurbGrid128/Output/snapshot_000 and
+/scratch/jcarmona/TurbGrid512/Output/snapshot_000 differ
+
+[jcarmona@login1 Accretion]$ diff /scratch/jcarmona/TurbGrid128/snapshot_shell
+/scratch/jcarmona/TurbGrid512/snapshot_shell 
+Binary files /scratch/jcarmona/TurbGrid128/snapshot_shell and
+/scratch/jcarmona/TurbGrid512/snapshot_shell differ
