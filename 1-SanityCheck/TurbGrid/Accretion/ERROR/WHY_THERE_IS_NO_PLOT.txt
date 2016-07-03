@@ -1,3 +1,11 @@
+The following is an account of how I discovered 
+that there was a huge error in the way the turbulence
+was given. It turned out to be a bug due to an 
+incompatibility of the fftw library. That error
+cost me some time....
+
+---------------------------
+
 All these txt files, obtained from the accretion
 data of the simulations with different
 grid for the turbulence are the same.
