@@ -105,29 +105,29 @@ def get_acc_info(datafile):
 	print("resol = "+str(resol)+" r_acc = "+str(r_acc)+", accreted mass: "+str(Tot_acc_mass)+", "+str(Int_acc_mass)+", error:"+str(error) )
 	return resol, Tot_acc_mass, r_acc
 
-def get_fit(X,Y):
-	a = 1
-	b = 2
-	slope = np.log(Y[b]/Y[a]) / np.log(X[b]/X[a])
-	y0 = Y[a]/X[a]**(slope)
-	x = np.linspace(min(X),10*max(X),1e6)
-	y = y0*x**(slope)
+def get_fit(Npart,M_measured):
+	point_b = 2
+	point_a = 1
+	k = np.log(M_measured[point_b]/M_measured[point_a]) / np.log(Npart[point_a]/Npart[point_b])
+	M_real = M_measured[-1]
+	C0 = (M_measured[0] * Npart[0] **(k))
+	x = np.linspace(Npart[0],Npart[-1],1e5)
+
+	y = M_real + C0 * x**(-k)
 	return x,y
 
 def trace_the_line(X,Y,col):
 	pl.loglog( X, Y, col+'o', label = "$r_{\\rm acc} ="+str(racc)+"$" )
 	pl.legend(loc=3)
 	x,y = get_fit(X,Y)
-	slope, y0 = get_fit(X,Y)
-	#pl.loglog(x,y, col+'.')
-	pl.loglog(x,y+Y[-1], col+'--')
+	pl.loglog(x,y, col+'--')
+	#pl.loglog(x,y+Y[-1], col+'--')
 
 	for i in range(1,len(X)):
-		for di in range(1,len(X)):
-			i1 = i - di
-			if( abs( X[i]/X[i1] - 2.0 ) < 0.1):
-#				pl.annotate( '{:3.2f},{:3.2f}'.format(X[i]/X[i1],Y[i]/Y[i1]), xy=(X[i],Y[i]), xytext=(10,0), textcoords='offset points')
-				pl.annotate( '$ {:3.2f} $'.format(Y[i]/Y[i1]), xy=(X[i],Y[i]), xytext=(10,0), textcoords='offset points')
+		i1 = i - 1
+		annotation = ( (Y[i]/Y[i1]) ) / ( (X[i]/X[i1]) )
+		pl.annotate( '$ {:3.2f} $'.format(annotation), xy=(X[i],Y[i]), xytext=(10,0), textcoords='offset points')
+		print( '{:3.2f}'.format(annotation))
 
 
 prepare_figure()
