@@ -20,7 +20,8 @@ def load_data(filename):
 			all_lines.append(line_data)
 	return all_lines
 
-for GRID in ['128', '158','256','317','384','512','640','768','896']:
+#for GRID in ['128', '158','256','317','384','512','640','768','896']:
+for GRID in ['128','256','512']:
 	datafile = '/scratch/jcarmona/TurbGrid'+GRID+'/Output/Accretion.txt'
 	print("loading "+datafile)
 	DATA = np.array(load_data(datafile))
