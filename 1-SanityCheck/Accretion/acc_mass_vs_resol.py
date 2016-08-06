@@ -47,7 +47,7 @@ def prepare_figure():
 
 	pl.xlabel('$N_{\\rm resol}$')
 	pl.ylabel('$M_{\\rm acc}/M_{\\rm shell}$')
-	pl.xlim([90000,5e6])
+	pl.xlim([0.9e5,2e7])
 	pl.ylim([1e-6,5e-2])
 
 
@@ -120,7 +120,7 @@ def trace_the_line(X,Y,col):
 	x,y = get_fit(X,Y)
 	slope, y0 = get_fit(X,Y)
 	#pl.loglog(x,y, col+'.')
-	pl.loglog(x,y+0.5*Y[-1], col+'--')
+	pl.loglog(x,y+Y[-1], col+'--')
 
 	for i in range(1,len(X)):
 		for di in range(1,len(X)):
@@ -175,7 +175,10 @@ for datafile in (
 'Racc_1e-4_res_500k.txt',
 'Racc_1e-4_res_750k.txt',
 'Racc_1e-4_res_001M.txt',
+'Racc_1e-4_res_002M.txt',
 'Racc_1e-4_res_004M.txt',
+'Racc_1e-4_res_008M.txt',
+'Racc_1e-4_res_010M.txt',
 ]):
 	Nres, Macc, racc = get_acc_info(datafile)
 	X.append(Nres)
