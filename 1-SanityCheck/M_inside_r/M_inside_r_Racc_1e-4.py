@@ -30,20 +30,26 @@ pl.tick_params(width=BorderWidth, length=0.3*FontSize, which='minor')
 snap = 5
 
 #Plot the simulations without accretion radius:
-for res, color in zip(['001M','002M','004M','008M','010M'],['b-','g-','r-','c-','m-']):
+for res, color in zip(['100k', '250k', '500k', '750k', 
+                       '001M', '002M', '004M', '008M',
+                       '010M'],
+                       ['b-',   'g-',  'r-',   'c-',
+                        'm-',   'b--', 'g--',  'r--',
+                        'c--']):
+                     
 	datafile = "./res_"+res+"_t"+str(snap)+"00.txt"
 	X = np.array(load_data(datafile))
 	M_cumulative = np.array(X[:,1])
 	for i in range(1,len(M_cumulative)):
 		M_cumulative[i] += M_cumulative[i-1]
-	imgplot = pl.loglog(X[:,0], M_cumulative,color, linewidth = 0.2*FontSize)
+	imgplot = pl.loglog(X[:,0], M_cumulative,color, linewidth = 0.2*FontSize,label=res)
 
 
 pl.legend(loc=2)
 pl.xlabel("$r$",fontsize=1.5*FontSize)
-pl.ylabel("$N_{\\rm frac}$",fontsize=1.5*FontSize)
-#pl.xlim([2e-3,2e-2])
-#pl.ylim([1e-3,1e0])
+pl.ylabel("$M/M_{\\rm shell}$",fontsize=1.5*FontSize)
+pl.xlim([4e-4,2e-2])
+pl.ylim([1e-7,1e-1])
 #pl.title("Circularization radius is where the peak is..." )
 figfile = "M_inside_r_all_res.png"
 pl.savefig(figfile)
