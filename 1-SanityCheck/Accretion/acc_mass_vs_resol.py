@@ -123,11 +123,11 @@ def trace_the_line(X,Y,col):
 	pl.loglog(x,y, col+'--')
 	#pl.loglog(x,y+Y[-1], col+'--')
 
-	for i in range(1,len(X)):
-		i1 = i - 1
-		annotation = ( (Y[i]/Y[i1]) ) / ( (X[i]/X[i1]) )
-		pl.annotate( '$ {:3.2f} $'.format(annotation), xy=(X[i],Y[i]), xytext=(10,0), textcoords='offset points')
-		print( '{:3.2f}'.format(annotation))
+	#for i in range(1,len(X)):
+	#	i1 = i - 1
+	#	annotation = ( (Y[i]/Y[i1]) ) / ( (X[i]/X[i1]) )
+	#	pl.annotate( '$ {:3.2f} $'.format(annotation), xy=(X[i],Y[i]), xytext=(10,0), textcoords='offset points')
+	#	print( '{:3.2f}'.format(annotation))
 
 
 prepare_figure()
